@@ -1,19 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Speech Recognition</title>
 
-    <link rel="stylesheet" href="./assets/css/style.css">
-</head>
-<body>
-    
-<div class="words" contenteditable="true">
-    
-</div>
+    <style>
+        html {
+            font-size: .8em;
+        }
 
-    <script src="./assets/js/logic.js"></script>
+        body {
+            background: #863030;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 200;
+            font-size: 1.5em;
+        }
+
+        .words {
+
+            max-width: 25em;
+            margin: 5em auto;
+            background-color: whitesmoke;
+            border-radius: .5em;
+            box-shadow: .8em .8em 0 rgba(0, 0, 0, 0.1);
+            padding: 1rem 2rem 1rem 5rem;
+            background: -webkit-gradient(linear, 0 0, 0 100%, from(#c7dae4), color-stop(4%, #ffffff)) 0 .3em;
+            background-size: 100% 3rem;
+            position: relative;
+            line-height: 3rem;
+        }
+
+        p {
+            margin: 0 0 3rem;
+        }
+
+        .words:before {
+            content: "";
+            position: absolute;
+            width: .3em;
+            top: 0;
+            left: 2.8em;
+            bottom: 0;
+            border: 1px solid;
+            border-color: transparent #db8888;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="words" contenteditable="true"></div>
+
+    <script>
+        window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+        const recognition = new SpeechRecognition();
+        recognition.interimResults = true;
+
+        // create a new <p> when speech is paused
+
+        let p = document.createElement("p");
+        const words = document.querySelector(".words");
+        words.appendChild(p);
+
+        recognition.addEventListener("results", e => {
+            console.log(e.results);
+        });
+
+        recognition.start();
+    </script>
 </body>
+
 </html>

@@ -1,0 +1,23 @@
+{
+  "name": "speech-recognition",
+  "version": "1.0.0",
+  "description": "App that uses native speech recognition",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shaneweth/speech-recognition.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shaneweth/speech-recognition/issues"
+  },
+  "homepage": "https://github.com/shaneweth/speech-recognition#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
